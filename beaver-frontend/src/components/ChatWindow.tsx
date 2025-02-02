@@ -95,6 +95,11 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ code, onUpdateCode }) => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about the code..."
           className="flex-grow p-2 text-white border rounded"
+          onKeyDown={(key) => {
+            if (key.key === "Enter") {
+              sendMessage();
+            }
+          }}
         />
         <button onClick={sendMessage} className="primary-btn">
           Send
