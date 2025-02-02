@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-darkGray text-lightGray transition-colors duration-300;
+  font-family: "Montserrat" !important;
+}
+
+.dark {
+  @apply bg-midGray text-lightGray;
+}
+
+/* Button Styling */
+button {
+  @apply px-4 py-2 font-medium rounded-md shadow-md transition-all;
+  background: #252525;
+  color: #e0e0e0;
+  border: 1px solid #3a3a3a;
+}
+
+button:hover {
+  background: #3a3a3a;
+  @apply transform scale-105;
+}
+
+.primary-btn {
+  background: #252525;
+  border: 1px solid #3a3a3a;
+  color: #e0e0e0;
+}
+
+.primary-btn:hover {
+  background: #3a3a3a;
+}
+
+/* Modal Styling */
+.modal {
+  @apply bg-midGray p-6 rounded-md shadow-lg w-96;
+}
+
+.modal-header {
+  @apply text-lg font-semibold border-b border-lightGray pb-2 mb-4;
+}
+
+/* Input Fields */
+input {
+  @apply w-full p-2 mb-2 border rounded-md bg-darkGray text-white border-midGray;
+}
+
+input:focus {
+  @apply outline-none border-lightGray;
+}
