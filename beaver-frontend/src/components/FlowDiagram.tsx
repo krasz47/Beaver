@@ -174,6 +174,7 @@ const FlowDiagram = () => {
   const handleClearFlowchart = () => {
     setNodes([]);
     setEdges([]);
+    setCurrentExercise(null);
   };
 
   const handleFlowchartExtracted = (flowchartData) => {
