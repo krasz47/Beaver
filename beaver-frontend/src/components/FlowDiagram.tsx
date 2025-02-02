@@ -250,9 +250,12 @@ const FlowDiagram = () => {
             <button onClick={handleClearFlowchart} className="primary-btn">
               Clear Canvas
             </button>
-            <button onClick={handleValidateExercise} className="primary-btn">
-              Validate Exercise
-            </button>
+
+            {currentExercise && (
+              <button onClick={handleValidateExercise} className="primary-btn">
+                Validate Exercise
+              </button>
+            )}
           </div>
 
           <CodeEditor code={generatedCode} />
