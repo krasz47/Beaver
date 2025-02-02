@@ -1,0 +1,39 @@
+{
+  "id": 12,
+  "title": "🧮 Greatest Common Divisor Battle",
+  "description": "Find the GCD of two numbers using the Euclidean algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input A, B",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["A", "B"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop while B ≠ 0",
+        "color": "#252525",
+        "inputs": ["A", "B"],
+        "outputs": ["True", "False"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Set A = B", "Set B = A mod B", "Print GCD"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "A, B" },
+      { "from": "2", "to": "3", "label": "True" },
+      { "from": "3", "to": "4", "label": "Update A, B" },
+      { "from": "2", "to": "5", "label": "False" }
+    ]
+  }
+}

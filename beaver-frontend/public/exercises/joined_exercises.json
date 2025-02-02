@@ -1,0 +1,185 @@
+{
+  "id": 6,
+  "title": "🌡️ Celsius to Fahrenheit Converter",
+  "description": "Convert temperature from Celsius to Fahrenheit.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Celsius",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Celsius"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Convert to Fahrenheit",
+        "color": "#252525",
+        "inputs": ["Celsius"],
+        "outputs": ["Fahrenheit"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Fahrenheit"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Celsius" },
+      { "from": "2", "to": "3", "label": "Fahrenheit" }
+    ]
+  }
+}
+{
+  "id": 7,
+  "title": "🎲 Factorial Frenzy",
+  "description": "Compute the factorial of a number using loops or recursion.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input N",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["N"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Calculate Factorial",
+        "color": "#252525",
+        "inputs": ["N"],
+        "outputs": ["Factorial"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Factorial"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "N" },
+      { "from": "2", "to": "3", "label": "Factorial" }
+    ]
+  }
+}
+{
+  "id": 8,
+  "title": "🔢 Counting to N",
+  "description": "Use a loop to print numbers from 1 to N.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input N",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["N"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Loop from 1 to N",
+        "color": "#252525",
+        "inputs": ["N"],
+        "outputs": ["Current Number"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Current Number"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "N" },
+      { "from": "2", "to": "3", "label": "Current Number" }
+    ]
+  }
+}
+{
+  "id": 9,
+  "title": "🌀 Fibonacci Spiral",
+  "description": "Generate the Fibonacci sequence up to N terms.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input N",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["N"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Generate Fibonacci",
+        "color": "#252525",
+        "inputs": ["N"],
+        "outputs": ["Fibonacci Sequence"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Fibonacci"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "N" },
+      { "from": "2", "to": "3", "label": "Fibonacci Sequence" }
+    ]
+  }
+}
+{
+  "id": 10,
+  "title": "🔄 Reverse the Digits!",
+  "description": "Reverse a given number using loops.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Reverse Number",
+        "color": "#252525",
+        "inputs": ["Number"],
+        "outputs": ["Reversed"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Reversed"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Number" },
+      { "from": "2", "to": "3", "label": "Reversed" }
+    ]
+  }
+}

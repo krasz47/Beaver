@@ -1,0 +1,37 @@
+{
+  "id": 6,
+  "title": "🌡️ Celsius to Fahrenheit Converter",
+  "description": "Convert temperature from Celsius to Fahrenheit.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Celsius",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Celsius"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Convert to Fahrenheit",
+        "color": "#252525",
+        "inputs": ["Celsius"],
+        "outputs": ["Fahrenheit"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Fahrenheit"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Celsius" },
+      { "from": "2", "to": "3", "label": "Fahrenheit" }
+    ]
+  }
+}

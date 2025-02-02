@@ -1,0 +1,59 @@
+{
+  "id": 23,
+  "title": "🔍 Palindrome Checker",
+  "description": "Check if a string is a palindrome.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input String",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["String"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Reverse String",
+        "color": "#252525",
+        "inputs": ["String"],
+        "outputs": ["Reversed"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Compare Strings",
+        "color": "#252525",
+        "inputs": ["String", "Reversed"],
+        "outputs": ["Match", "No Match"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Print Result",
+        "color": "#252525",
+        "inputs": ["Match", "No Match"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "String" },
+      { "from": "2", "to": "3", "label": "Reversed" },
+      { "from": "3", "to": "4", "label": "Match or No Match" }
+    ]
+  }
+}

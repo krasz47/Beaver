@@ -1,0 +1,71 @@
+{
+  "id": 25,
+  "title": "🔀 Bubble Sort Visualization",
+  "description": "Sort an array using the Bubble Sort algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop Over Array",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["Loop Index"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Compare Adjacent Elements",
+        "color": "#252525",
+        "inputs": ["Loop Index"],
+        "outputs": ["Swap Needed"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Swap Elements",
+        "color": "#252525",
+        "inputs": ["Swap Needed"],
+        "outputs": ["Updated Array"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Sorted Array",
+        "color": "#252525",
+        "inputs": ["Updated Array"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array" },
+      { "from": "2", "to": "3", "label": "Loop Index" },
+      { "from": "3", "to": "4", "label": "Swap Needed" },
+      { "from": "4", "to": "5", "label": "Updated Array" }
+    ]
+  }
+}

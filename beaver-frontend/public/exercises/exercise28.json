@@ -1,0 +1,71 @@
+{
+  "id": 28,
+  "title": "🎭 Anagram Checker",
+  "description": "Check if two strings are anagrams.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input String 1",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["String1"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Input String 2",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["String2"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Sort Characters",
+        "color": "#252525",
+        "inputs": ["String1", "String2"],
+        "outputs": ["Sorted1", "Sorted2"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Compare Sorted Strings",
+        "color": "#252525",
+        "inputs": ["Sorted1", "Sorted2"],
+        "outputs": ["Match", "No Match"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Result",
+        "color": "#252525",
+        "inputs": ["Match", "No Match"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "3", "label": "String1" },
+      { "from": "2", "to": "3", "label": "String2" },
+      { "from": "3", "to": "4", "label": "Sorted1, Sorted2" },
+      { "from": "4", "to": "5", "label": "Match or No Match" }
+    ]
+  }
+}

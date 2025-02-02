@@ -1,0 +1,71 @@
+{
+  "id": 27,
+  "title": "🔢 Decimal to Binary Converter",
+  "description": "Convert a decimal number into binary.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Decimal Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop While Number > 0",
+        "color": "#252525",
+        "inputs": ["Number"],
+        "outputs": ["Loop"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Get Remainder % 2",
+        "color": "#252525",
+        "inputs": ["Loop"],
+        "outputs": ["Bit"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Append Bit to Result",
+        "color": "#252525",
+        "inputs": ["Bit"],
+        "outputs": ["Binary Result"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Binary Number",
+        "color": "#252525",
+        "inputs": ["Binary Result"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Number" },
+      { "from": "2", "to": "3", "label": "Loop" },
+      { "from": "3", "to": "4", "label": "Bit" },
+      { "from": "4", "to": "5", "label": "Binary Result" }
+    ]
+  }
+}

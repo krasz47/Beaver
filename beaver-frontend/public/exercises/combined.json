@@ -1,0 +1,574 @@
+{
+  "id": 11,
+  "title": "🔬 Prime Time!",
+  "description": "Check if a number is prime using loops.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Initialize i = 2",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["i"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Loop i < Number",
+        "color": "#252525",
+        "inputs": ["i", "Number"],
+        "outputs": ["True", "False"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": [
+      "Check divisibility",
+      "Increment i",
+      "Print Prime",
+      "Print Not Prime"
+    ],
+    "correctConnections": [
+      { "from": "1", "to": "3", "label": "Number" },
+      { "from": "2", "to": "3", "label": "i" },
+      { "from": "3", "to": "4", "label": "True" },
+      { "from": "3", "to": "5", "label": "False" },
+      { "from": "4", "to": "5", "label": "Increment i" }
+    ]
+  }
+}
+{
+  "id": 12,
+  "title": "🧮 Greatest Common Divisor Battle",
+  "description": "Find the GCD of two numbers using the Euclidean algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input A, B",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["A", "B"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop while B ≠ 0",
+        "color": "#252525",
+        "inputs": ["A", "B"],
+        "outputs": ["True", "False"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Set A = B", "Set B = A mod B", "Print GCD"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "A, B" },
+      { "from": "2", "to": "3", "label": "True" },
+      { "from": "3", "to": "4", "label": "Update A, B" },
+      { "from": "2", "to": "5", "label": "False" }
+    ]
+  }
+}
+{
+  "id": 13,
+  "title": "📊 Bubble Sort Simulation",
+  "description": "Sort an array using the Bubble Sort algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop i = 0 to n-1",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["i"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Loop j = 0 to n-i-1",
+        "color": "#252525",
+        "inputs": ["Array", "i"],
+        "outputs": ["j"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": [
+      "Compare Adjacent",
+      "Swap if Necessary",
+      "Print Sorted Array"
+    ],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array" },
+      { "from": "2", "to": "3", "label": "i" },
+      { "from": "3", "to": "4", "label": "j" },
+      { "from": "4", "to": "5", "label": "Compare" },
+      { "from": "5", "to": "6", "label": "Swap if Needed" },
+      { "from": "3", "to": "7", "label": "End Loop" }
+    ]
+  }
+}
+{
+  "id": 14,
+  "title": "🔎 The Search Quest (Linear Search)",
+  "description": "Find an element in an array using Linear Search.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array, Target",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array", "Target"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop i = 0 to n-1",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["i"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Compare Element", "Print Found", "Print Not Found"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array, Target" },
+      { "from": "2", "to": "3", "label": "i" },
+      { "from": "3", "to": "4", "label": "Compare" },
+      { "from": "4", "to": "5", "label": "Match Found" },
+      { "from": "4", "to": "6", "label": "Continue Searching" }
+    ]
+  }
+}
+{
+  "id": 15,
+  "title": "📡 The Binary Search Signal",
+  "description": "Implement the Binary Search algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Sorted Array, Target",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array", "Target"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Set Low = 0, High = n-1",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["Low", "High"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": [
+      "Check Midpoint",
+      "Adjust Low/High",
+      "Print Found",
+      "Print Not Found"
+    ],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array, Target" },
+      { "from": "2", "to": "3", "label": "Low, High" },
+      { "from": "3", "to": "4", "label": "Compare Mid" },
+      { "from": "4", "to": "5", "label": "Target Found" },
+      { "from": "4", "to": "6", "label": "Adjust Low/High" },
+      { "from": "6", "to": "3", "label": "Repeat Search" }
+    ]
+  }
+}
+{
+  "id": 16,
+  "title": "🥈 The Second Largest",
+  "description": "Find the second largest number in an array.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Find Largest",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["Max"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Remove Largest",
+        "color": "#252525",
+        "inputs": ["Array", "Max"],
+        "outputs": ["Modified Array"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Find Second Largest",
+        "color": "#252525",
+        "inputs": ["Modified Array"],
+        "outputs": ["Second Max"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Second Largest"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array" },
+      { "from": "2", "to": "3", "label": "Max" },
+      { "from": "3", "to": "4", "label": "Modified Array" },
+      { "from": "4", "to": "5", "label": "Second Max" }
+    ]
+  }
+}
+{
+  "id": 17,
+  "title": "🔁 Loop Detector in Linked List",
+  "description": "Detect a cycle in a linked list using Floyd's algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Linked List",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Head"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Initialize Slow and Fast",
+        "color": "#252525",
+        "inputs": ["Head"],
+        "outputs": ["Slow", "Fast"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Move Slow by 1, Fast by 2",
+        "color": "#252525",
+        "inputs": ["Slow", "Fast"],
+        "outputs": ["Updated Slow", "Updated Fast"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Check if Slow == Fast",
+        "color": "#252525",
+        "inputs": ["Updated Slow", "Updated Fast"],
+        "outputs": ["Cycle Detected", "No Cycle"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Cycle Detected", "Print No Cycle"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Head" },
+      { "from": "2", "to": "3", "label": "Slow, Fast" },
+      { "from": "3", "to": "4", "label": "Updated Slow, Updated Fast" },
+      { "from": "4", "to": "5", "label": "Cycle Detected" },
+      { "from": "4", "to": "6", "label": "No Cycle" }
+    ]
+  }
+}
+{
+  "id": 18,
+  "title": "📦 Stack it Up! (Stack Implementation)",
+  "description": "Implement a stack using an array.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Initialize Stack",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Stack"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Push Element",
+        "color": "#252525",
+        "inputs": ["Stack"],
+        "outputs": ["Updated Stack"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Pop Element",
+        "color": "#252525",
+        "inputs": ["Updated Stack"],
+        "outputs": ["Updated Stack After Pop"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Check If Empty",
+        "color": "#252525",
+        "inputs": ["Updated Stack After Pop"],
+        "outputs": ["Is Empty"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Stack",
+        "color": "#252525",
+        "inputs": ["Is Empty"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Stack" },
+      { "from": "2", "to": "3", "label": "Updated Stack" },
+      { "from": "3", "to": "4", "label": "Updated Stack After Pop" },
+      { "from": "4", "to": "5", "label": "Is Empty" }
+    ]
+  }
+}
+{
+  "id": 19,
+  "title": "🌍 Shortest Path in a Maze",
+  "description": "Find the shortest path using BFS/DFS.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Maze",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Maze Grid"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Initialize Queue",
+        "color": "#252525",
+        "inputs": ["Maze Grid"],
+        "outputs": ["Queue"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Check Neighbors",
+        "color": "#252525",
+        "inputs": ["Queue"],
+        "outputs": ["New Paths"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Store Shortest Path",
+        "color": "#252525",
+        "inputs": ["New Paths"],
+        "outputs": ["Shortest Path"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Shortest Path",
+        "color": "#252525",
+        "inputs": ["Shortest Path"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Shortest Path"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Maze Grid" },
+      { "from": "2", "to": "3", "label": "Queue" },
+      { "from": "3", "to": "4", "label": "New Paths" },
+      { "from": "4", "to": "5", "label": "Shortest Path" }
+    ]
+  }
+}
+{
+  "id": 20,
+  "title": "🧮 Calculator Simulation",
+  "description": "Simulate a calculator that can perform basic arithmetic operations.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Expression",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Expression"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Parse Expression",
+        "color": "#252525",
+        "inputs": ["Expression"],
+        "outputs": ["Parsed"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Evaluate Expression",
+        "color": "#252525",
+        "inputs": ["Parsed"],
+        "outputs": ["Result"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Check Validity",
+        "color": "#252525",
+        "inputs": ["Result"],
+        "outputs": ["Valid"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Result",
+        "color": "#252525",
+        "inputs": ["Valid"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Expression" },
+      { "from": "2", "to": "3", "label": "Parsed" },
+      { "from": "3", "to": "4", "label": "Result" },
+      { "from": "4", "to": "5", "label": "Valid" }
+    ]
+  }
+}

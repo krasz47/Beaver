@@ -1,0 +1,40 @@
+{
+  "id": 14,
+  "title": "🔎 The Search Quest (Linear Search)",
+  "description": "Find an element in an array using Linear Search.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array, Target",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array", "Target"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop i = 0 to n-1",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["i"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Compare Element", "Print Found", "Print Not Found"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array, Target" },
+      { "from": "2", "to": "3", "label": "i" },
+      { "from": "3", "to": "4", "label": "Compare" },
+      { "from": "4", "to": "5", "label": "Match Found" },
+      { "from": "4", "to": "6", "label": "Continue Searching" }
+    ]
+  }
+}

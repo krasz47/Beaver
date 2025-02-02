@@ -1,0 +1,71 @@
+{
+  "id": 21,
+  "title": "🔢 Fibonacci Sequence",
+  "description": "Generate the first N Fibonacci numbers.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input N",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["N"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Initialize F1=0, F2=1",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["F1", "F2"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Loop N times",
+        "color": "#252525",
+        "inputs": ["N"],
+        "outputs": ["Loop"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Compute Next Fibonacci",
+        "color": "#252525",
+        "inputs": ["F1", "F2"],
+        "outputs": ["Next"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Fibonacci",
+        "color": "#252525",
+        "inputs": ["Next"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "3", "label": "N" },
+      { "from": "2", "to": "4", "label": "F1, F2" },
+      { "from": "4", "to": "5", "label": "Next" },
+      { "from": "5", "to": "4", "label": "Loop Back" }
+    ]
+  }
+}

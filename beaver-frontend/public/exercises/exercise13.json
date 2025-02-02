@@ -1,0 +1,56 @@
+{
+  "id": 13,
+  "title": "📊 Bubble Sort Simulation",
+  "description": "Sort an array using the Bubble Sort algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Loop i = 0 to n-1",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["i"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Loop j = 0 to n-i-1",
+        "color": "#252525",
+        "inputs": ["Array", "i"],
+        "outputs": ["j"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": [
+      "Compare Adjacent",
+      "Swap if Necessary",
+      "Print Sorted Array"
+    ],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array" },
+      { "from": "2", "to": "3", "label": "i" },
+      { "from": "3", "to": "4", "label": "j" },
+      { "from": "4", "to": "5", "label": "Compare" },
+      { "from": "5", "to": "6", "label": "Swap if Needed" },
+      { "from": "3", "to": "7", "label": "End Loop" }
+    ]
+  }
+}

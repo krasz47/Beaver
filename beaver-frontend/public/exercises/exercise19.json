@@ -1,0 +1,72 @@
+{
+  "id": 19,
+  "title": "🌍 Shortest Path in a Maze",
+  "description": "Find the shortest path using BFS/DFS.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Maze",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Maze Grid"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Initialize Queue",
+        "color": "#252525",
+        "inputs": ["Maze Grid"],
+        "outputs": ["Queue"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Check Neighbors",
+        "color": "#252525",
+        "inputs": ["Queue"],
+        "outputs": ["New Paths"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Store Shortest Path",
+        "color": "#252525",
+        "inputs": ["New Paths"],
+        "outputs": ["Shortest Path"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Shortest Path",
+        "color": "#252525",
+        "inputs": ["Shortest Path"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Shortest Path"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Maze Grid" },
+      { "from": "2", "to": "3", "label": "Queue" },
+      { "from": "3", "to": "4", "label": "New Paths" },
+      { "from": "4", "to": "5", "label": "Shortest Path" }
+    ]
+  }
+}

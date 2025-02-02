@@ -1,0 +1,61 @@
+{
+  "id": 16,
+  "title": "🥈 The Second Largest",
+  "description": "Find the second largest number in an array.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Find Largest",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["Max"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Remove Largest",
+        "color": "#252525",
+        "inputs": ["Array", "Max"],
+        "outputs": ["Modified Array"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Find Second Largest",
+        "color": "#252525",
+        "inputs": ["Modified Array"],
+        "outputs": ["Second Max"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Second Largest"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array" },
+      { "from": "2", "to": "3", "label": "Max" },
+      { "from": "3", "to": "4", "label": "Modified Array" },
+      { "from": "4", "to": "5", "label": "Second Max" }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": 2,
+  "title": "🏆 Find the Champion",
+  "description": "Complete the flowchart to determine the larger of two numbers.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input A, B",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["A", "B"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Compare A and B",
+        "color": "#252525",
+        "inputs": ["A", "B"],
+        "outputs": ["A>B", "A<B"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print A", "Print B"],
+    "correctConnections": [
+      { "from": "2", "to": "3", "label": "A>B" },
+      { "from": "2", "to": "4", "label": "A<B" }
+    ]
+  }
+}

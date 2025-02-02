@@ -1,0 +1,39 @@
+{
+  "id": 4,
+  "title": "🧩 Positive, Negative, or Zero?",
+  "description": "Modify this flowchart to classify a number as positive, negative, or zero.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Check Number",
+        "color": "#252525",
+        "inputs": ["Number"],
+        "outputs": ["Positive", "Negative", "Zero"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Positive", "Print Negative", "Print Zero"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Number" },
+      { "from": "2", "to": "3", "label": "Positive" },
+      { "from": "2", "to": "4", "label": "Negative" },
+      { "from": "2", "to": "5", "label": "Zero" }
+    ]
+  }
+}

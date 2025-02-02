@@ -1,0 +1,73 @@
+{
+  "id": 30,
+  "title": "🕵️‍♂️ Sudoku Solver",
+  "description": "Solve a 9x9 Sudoku puzzle using backtracking.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Sudoku Grid",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Grid"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Find Empty Cell",
+        "color": "#252525",
+        "inputs": ["Grid"],
+        "outputs": ["Row", "Col"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Try Numbers 1-9",
+        "color": "#252525",
+        "inputs": ["Row", "Col"],
+        "outputs": ["Candidate"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Check Validity",
+        "color": "#252525",
+        "inputs": ["Grid", "Candidate"],
+        "outputs": ["Valid?", "Invalid"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Recursively Solve",
+        "color": "#252525",
+        "inputs": ["Grid", "Valid?"],
+        "outputs": ["Solved Grid"]
+      }
+    },
+    {
+      "id": "6",
+      "type": "custom",
+      "position": { "x": 850, "y": 100 },
+      "data": {
+        "label": "Print Solved Sudoku",
+        "color": "#252525",
+        "inputs": ["Solved Grid"],
+        "outputs": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 15,
+  "title": "📡 The Binary Search Signal",
+  "description": "Implement the Binary Search algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Sorted Array, Target",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array", "Target"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Set Low = 0, High = n-1",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["Low", "High"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": [
+      "Check Midpoint",
+      "Adjust Low/High",
+      "Print Found",
+      "Print Not Found"
+    ],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Array, Target" },
+      { "from": "2", "to": "3", "label": "Low, High" },
+      { "from": "3", "to": "4", "label": "Compare Mid" },
+      { "from": "4", "to": "5", "label": "Target Found" },
+      { "from": "4", "to": "6", "label": "Adjust Low/High" },
+      { "from": "6", "to": "3", "label": "Repeat Search" }
+    ]
+  }
+}

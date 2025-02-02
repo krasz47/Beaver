@@ -1,0 +1,37 @@
+{
+  "id": 9,
+  "title": "🌀 Fibonacci Spiral",
+  "description": "Generate the Fibonacci sequence up to N terms.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input N",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["N"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Generate Fibonacci",
+        "color": "#252525",
+        "inputs": ["N"],
+        "outputs": ["Fibonacci Sequence"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Fibonacci"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "N" },
+      { "from": "2", "to": "3", "label": "Fibonacci Sequence" }
+    ]
+  }
+}

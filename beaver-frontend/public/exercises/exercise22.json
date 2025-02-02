@@ -1,0 +1,71 @@
+{
+  "id": 22,
+  "title": "🔢 Reverse a Number",
+  "description": "Reverse the digits of a number.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Extract Last Digit",
+        "color": "#252525",
+        "inputs": ["Number"],
+        "outputs": ["Last Digit"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Append Digit to Result",
+        "color": "#252525",
+        "inputs": ["Last Digit"],
+        "outputs": ["Reversed"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Remove Last Digit",
+        "color": "#252525",
+        "inputs": ["Number"],
+        "outputs": ["Remaining Number"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Reversed Number",
+        "color": "#252525",
+        "inputs": ["Reversed"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Number" },
+      { "from": "2", "to": "3", "label": "Last Digit" },
+      { "from": "3", "to": "4", "label": "Reversed" },
+      { "from": "4", "to": "5", "label": "Remaining Number" }
+    ]
+  }
+}

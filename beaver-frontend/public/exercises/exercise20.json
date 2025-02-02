@@ -1,0 +1,71 @@
+{
+  "id": 20,
+  "title": "🧮 Calculator Simulation",
+  "description": "Simulate a calculator that can perform basic arithmetic operations.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Expression",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Expression"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Parse Expression",
+        "color": "#252525",
+        "inputs": ["Expression"],
+        "outputs": ["Parsed"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Evaluate Expression",
+        "color": "#252525",
+        "inputs": ["Parsed"],
+        "outputs": ["Result"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Check Validity",
+        "color": "#252525",
+        "inputs": ["Result"],
+        "outputs": ["Valid"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Result",
+        "color": "#252525",
+        "inputs": ["Valid"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Expression" },
+      { "from": "2", "to": "3", "label": "Parsed" },
+      { "from": "3", "to": "4", "label": "Result" },
+      { "from": "4", "to": "5", "label": "Valid" }
+    ]
+  }
+}

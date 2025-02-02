@@ -1,0 +1,71 @@
+{
+  "id": 18,
+  "title": "📦 Stack it Up! (Stack Implementation)",
+  "description": "Implement a stack using an array.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Initialize Stack",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Stack"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Push Element",
+        "color": "#252525",
+        "inputs": ["Stack"],
+        "outputs": ["Updated Stack"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Pop Element",
+        "color": "#252525",
+        "inputs": ["Updated Stack"],
+        "outputs": ["Updated Stack After Pop"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Check If Empty",
+        "color": "#252525",
+        "inputs": ["Updated Stack After Pop"],
+        "outputs": ["Is Empty"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Stack",
+        "color": "#252525",
+        "inputs": ["Is Empty"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Stack" },
+      { "from": "2", "to": "3", "label": "Updated Stack" },
+      { "from": "3", "to": "4", "label": "Updated Stack After Pop" },
+      { "from": "4", "to": "5", "label": "Is Empty" }
+    ]
+  }
+}

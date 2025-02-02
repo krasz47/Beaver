@@ -1,0 +1,62 @@
+{
+  "id": 29,
+  "title": "📈 QuickSort Algorithm",
+  "description": "Sort an array using the QuickSort algorithm.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Array",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Array"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Choose Pivot",
+        "color": "#252525",
+        "inputs": ["Array"],
+        "outputs": ["Pivot"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Partition Array",
+        "color": "#252525",
+        "inputs": ["Array", "Pivot"],
+        "outputs": ["Left", "Right"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Recursively Sort",
+        "color": "#252525",
+        "inputs": ["Left", "Right"],
+        "outputs": ["Sorted Left", "Sorted Right"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Combine and Print",
+        "color": "#252525",
+        "inputs": ["Sorted Left", "Pivot", "Sorted Right"],
+        "outputs": []
+      }
+    }
+  ]
+}

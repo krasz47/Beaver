@@ -1,0 +1,56 @@
+{
+  "id": 11,
+  "title": "🔬 Prime Time!",
+  "description": "Check if a number is prime using loops.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Initialize i = 2",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["i"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Loop i < Number",
+        "color": "#252525",
+        "inputs": ["i", "Number"],
+        "outputs": ["True", "False"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": [
+      "Check divisibility",
+      "Increment i",
+      "Print Prime",
+      "Print Not Prime"
+    ],
+    "correctConnections": [
+      { "from": "1", "to": "3", "label": "Number" },
+      { "from": "2", "to": "3", "label": "i" },
+      { "from": "3", "to": "4", "label": "True" },
+      { "from": "3", "to": "6", "label": "False" },
+      { "from": "4", "to": "5", "label": "Increment i" }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": 3,
+  "title": "➕ The Great Sum",
+  "description": "Create a flowchart that adds two numbers together and prints the result.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input A, B",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["A", "B"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Sum = A + B",
+        "color": "#252525",
+        "inputs": ["A", "B"],
+        "outputs": ["Sum"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Sum"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "A, B" },
+      { "from": "2", "to": "3", "label": "Sum" }
+    ]
+  }
+}

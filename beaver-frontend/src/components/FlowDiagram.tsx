@@ -62,6 +62,33 @@ const FlowDiagram = () => {
     setEdges([]);
   };
 
+  const handleShowSolution = () => {
+    if (!currentExercise) {
+      alert("❌ No active exercise. Select one from the curriculum.");
+      return;
+    }
+
+    // fetch from /exercises/solutions.json [currentExercise.id]
+
+    // Update nodes and edges with solution data
+
+    fetch(`/exercises/solutions.json`)
+      .then((response) => response.json())
+      .then((solutions) => {
+        const solution = solutions[currentExercise.id - 1];
+        if (solution) {
+          setNodes(solution.nodes);
+          setEdges(solution.edges);
+        } else {
+          alert("❌ Solution not found for the current exercise.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching solution:", error);
+        alert("❌ Error fetching solution.");
+      });
+  };
+
   const handleValidateExercise = () => {
     if (!currentExercise) {
       alert("❌ No active exercise. Select one from the curriculum.");
@@ -79,7 +106,10 @@ const FlowDiagram = () => {
     console.log(edges);
     console.log(validation.correctConnections);
     const incorrectEdges = validation.correctConnections.filter(
-      (conn) => !edges.some((edge) => edge.sourceHandle === conn.label)
+      (conn) =>
+        !edges.some(
+          (edge) => edge.source == conn.from && edge.target == conn.to
+        )
     );
 
     if (missingNodes.length === 0 && incorrectEdges.length === 0) {
@@ -252,9 +282,17 @@ const FlowDiagram = () => {
             </button>
 
             {currentExercise && (
-              <button onClick={handleValidateExercise} className="primary-btn">
-                Validate Exercise
-              </button>
+              <>
+                <button
+                  onClick={handleValidateExercise}
+                  className="primary-btn"
+                >
+                  Validate Exercise
+                </button>
+                <button onClick={handleShowSolution} className="primary-btn">
+                  Show Solution
+                </button>
+              </>
             )}
           </div>
 

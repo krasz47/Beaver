@@ -1,0 +1,71 @@
+{
+  "id": 26,
+  "title": "🌳 Binary Search Tree Insertion",
+  "description": "Insert an element into a binary search tree.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input BST Root",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Root"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 250, "y": 100 },
+      "data": {
+        "label": "Input New Element",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Element"]
+      }
+    },
+    {
+      "id": "3",
+      "type": "custom",
+      "position": { "x": 400, "y": 100 },
+      "data": {
+        "label": "Traverse Tree",
+        "color": "#252525",
+        "inputs": ["Root"],
+        "outputs": ["Current Node"]
+      }
+    },
+    {
+      "id": "4",
+      "type": "custom",
+      "position": { "x": 550, "y": 100 },
+      "data": {
+        "label": "Compare & Insert",
+        "color": "#252525",
+        "inputs": ["Current Node", "Element"],
+        "outputs": ["Updated BST"]
+      }
+    },
+    {
+      "id": "5",
+      "type": "custom",
+      "position": { "x": 700, "y": 100 },
+      "data": {
+        "label": "Print Updated BST",
+        "color": "#252525",
+        "inputs": ["Updated BST"],
+        "outputs": []
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "correctConnections": [
+      { "from": "1", "to": "3", "label": "Root" },
+      { "from": "2", "to": "4", "label": "Element" },
+      { "from": "3", "to": "4", "label": "Current Node" },
+      { "from": "4", "to": "5", "label": "Updated BST" }
+    ]
+  }
+}

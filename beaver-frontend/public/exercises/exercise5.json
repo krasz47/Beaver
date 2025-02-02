@@ -1,0 +1,38 @@
+{
+  "id": 5,
+  "title": "📅 Leap Year Mystery",
+  "description": "Determine if a given year is a leap year or not.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Year",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Year"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Check Leap Year",
+        "color": "#252525",
+        "inputs": ["Year"],
+        "outputs": ["Yes", "No"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Leap Year", "Print Not Leap Year"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Year" },
+      { "from": "2", "to": "3", "label": "Yes" },
+      { "from": "2", "to": "4", "label": "No" }
+    ]
+  }
+}
