@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import setRefresh from "react";
 import ReactFlow, {
   Background,
   Controls,
@@ -17,6 +18,7 @@ import NodeContextMenu from "./NodeContextMenu";
 import NodeEditModal from "./NodeEditModal";
 import Navbar from "./Navbar";
 import CurriculumModal from "./CurriculumModal";
+import EdgeContextMenu from "./EdgeContextMenu";
 
 const nodeTypes: NodeTypes = {
   custom: CustomNode,
@@ -31,6 +33,12 @@ const FlowDiagram = () => {
     y: number;
     nodeId: string;
   } | null>(null);
+  const [edgeContextMenu, setEdgeContextMenu] = useState<{
+    x: number;
+    y: number;
+    edgeId: string;
+  } | null>(null);
+
   const [selectedNode, setSelectedNode] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -130,6 +138,7 @@ const FlowDiagram = () => {
     }
   };
 
+  const forceUpdate = () => setRefresh((prev) => prev + 1);
   const handleGenerateCode = async () => {
     const code = await generateCode(
       JSON.stringify(nodes),
@@ -141,6 +150,11 @@ const FlowDiagram = () => {
   const handleNodeRightClick = (event: React.MouseEvent, nodeId: string) => {
     event.preventDefault();
     setContextMenu({ x: event.clientX, y: event.clientY, nodeId });
+  };
+
+  const handleEdgeRightClick = (event: React.MouseEvent, edgeId: string) => {
+    event.preventDefault();
+    setEdgeContextMenu({ x: event.clientX, y: event.clientY, edgeId });
   };
 
   const handleNodeClick = (nodeId: string) => {
@@ -155,6 +169,11 @@ const FlowDiagram = () => {
       )
     );
     setContextMenu(null);
+  };
+
+  const handleDeleteEdge = (edgeId: string) => {
+    setEdges((prevEdges) => prevEdges.filter((edge) => edge.id !== edgeId));
+    setEdgeContextMenu(null);
   };
 
   const handleDuplicateNode = (nodeId: string) => {
@@ -193,9 +212,20 @@ const FlowDiagram = () => {
   };
 
   const handleImport = (flowchartData) => {
+    handleClearFlowchart();
+
     if (flowchartData.nodes && flowchartData.edges) {
-      setNodes([...nodes, ...flowchartData.nodes]);
-      setEdges([...edges, ...flowchartData.edges]);
+      const formattedEdges = flowchartData.edges.map((edge) => ({
+        ...edge,
+        id:
+          edge.id ||
+          `${edge.source}-${edge.target}-${edge.sourceHandle || ""}-${
+            edge.targetHandle || ""
+          }`,
+      }));
+
+      setNodes(flowchartData.nodes);
+      setEdges(formattedEdges);
     } else {
       console.error("Invalid flowchart format");
     }
@@ -210,7 +240,7 @@ const FlowDiagram = () => {
   const handleFlowchartExtracted = (flowchartData) => {
     const formattedEdges = flowchartData.edges.map((edge) => ({
       ...edge,
-      id: `${edge.source}-${edge.target}-${edge.sourceHandle}`,
+      id: `${edge.source}-${edge.target}-${edge.sourceHandle}-${edge.targetHandle}`,
       sourceHandle: edge.sourceHandle || null,
       targetHandle: edge.targetHandle || null,
     }));
@@ -245,6 +275,9 @@ const FlowDiagram = () => {
                 handleNodeClick(node.id);
                 setIsEditModalOpen(true);
               }}
+              onEdgeContextMenu={(event, edge) =>
+                handleEdgeRightClick(event, edge.id)
+              }
             >
               <Controls />
               <Background />
@@ -263,6 +296,16 @@ const FlowDiagram = () => {
                   setContextMenu(null);
                 }}
                 onClose={() => setContextMenu(null)}
+              />
+            )}
+
+            {edgeContextMenu && (
+              <EdgeContextMenu
+                x={edgeContextMenu.x}
+                y={edgeContextMenu.y}
+                edgeId={edgeContextMenu.edgeId}
+                onDelete={handleDeleteEdge}
+                onClose={() => setEdgeContextMenu(null)}
               />
             )}
           </div>
@@ -325,6 +368,7 @@ const FlowDiagram = () => {
                 )
               );
               setIsEditModalOpen(false);
+              forceUpdate();
             }}
           />
         )}

@@ -599,7 +599,7 @@
       {
         "id": "2",
         "type": "custom",
-        "position": { "x": 250, "y": 100 },
+        "position": { "x": 400, "y": 150 },
         "data": {
           "label": "Loop while B ≠ 0",
           "color": "#252525",
@@ -610,7 +610,7 @@
       {
         "id": "3",
         "type": "custom",
-        "position": { "x": 400, "y": 100 },
+        "position": { "x": 700, "y": 50 },
         "data": {
           "label": "Set A = B",
           "color": "#252525",
@@ -621,7 +621,7 @@
       {
         "id": "4",
         "type": "custom",
-        "position": { "x": 550, "y": 100 },
+        "position": { "x": 700, "y": 250 },
         "data": {
           "label": "Set B = A mod B",
           "color": "#252525",
@@ -632,7 +632,7 @@
       {
         "id": "5",
         "type": "custom",
-        "position": { "x": 700, "y": 100 },
+        "position": { "x": 1000, "y": 150 },
         "data": {
           "label": "Print GCD",
           "color": "#252525",
@@ -642,11 +642,48 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "A, B" },
-      { "source": "2", "target": "3", "label": "True" },
-      { "source": "3", "target": "4", "label": "New A" },
-      { "source": "4", "target": "2", "label": "New B" },
-      { "source": "2", "target": "5", "label": "False" }
+      {
+        "source": "1",
+        "target": "2",
+        "sourceHandle": "A",
+        "targetHandle": "A",
+        "id": "1-2-A"
+      },
+      {
+        "source": "1",
+        "target": "2",
+        "sourceHandle": "B",
+        "targetHandle": "B",
+        "id": "1-2-B"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "sourceHandle": "True",
+        "targetHandle": "B",
+        "id": "2-3-True"
+      },
+      {
+        "source": "3",
+        "target": "4",
+        "sourceHandle": "New A",
+        "targetHandle": "A",
+        "id": "3-4-NewA"
+      },
+      {
+        "source": "4",
+        "target": "2",
+        "sourceHandle": "New B",
+        "targetHandle": "B",
+        "id": "4-2-NewB"
+      },
+      {
+        "source": "2",
+        "target": "5",
+        "sourceHandle": "False",
+        "targetHandle": "New A",
+        "id": "2-5-False"
+      }
     ]
   }
 ]

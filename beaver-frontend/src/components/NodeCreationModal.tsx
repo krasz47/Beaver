@@ -18,11 +18,12 @@ const NodeCreationModal: React.FC<NodeCreationModalProps> = ({
   const [inputs, setInputs] = useState([]);
   const [outputs, setOutputs] = useState([]);
 
-  const addInput = () => setInputs([...inputs, `Input`]);
+  const addInput = () => setInputs([...inputs, `Input ${inputs.length + 1}`]);
   const removeInput = (index: number) =>
     setInputs(inputs.filter((_, i) => i !== index));
 
-  const addOutput = () => setOutputs([...outputs, `Output`]);
+  const addOutput = () =>
+    setOutputs([...outputs, `Output ${outputs.length + 1}`]);
   const removeOutput = (index: number) =>
     setOutputs(outputs.filter((_, i) => i !== index));
 

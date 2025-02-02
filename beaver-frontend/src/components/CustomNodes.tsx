@@ -52,7 +52,7 @@ const CustomNode: React.FC<NodeProps> = ({ id, data }) => {
       {/* Render Output Handles */}
       {data.outputs.map((outputLabel, index) => (
         <Handle
-          key={`output-${index}`}
+          key={`output-label-${index}`}
           type="source"
           position={Position.Right}
           id={outputLabel} // unique and correctly labeled handle ID
