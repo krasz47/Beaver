@@ -119,10 +119,11 @@ Ensure that:
         raise HTTPException(status_code=500, detail=str(e))
 
 class ChatRequest(BaseModel):
+    messages: list
     code: str
-    message: str
 
-@app.post("/api/chat")
+
+@app.post("/chat")
 async def chat_with_ai(request: ChatRequest):
     prompt = f"""
 You are Beaver AI, an advanced AI assistant specialized in analyzing and explaining code. 
@@ -182,16 +183,24 @@ Do not provide information that is not explicitly present in the user's code.
 ---
 
 User's Message:
-{request.message}
+{request.messages}
 
 
 Ensure the response is concise, clear, and directly related to the user's code context, and ensure that it is not in markdown. Be as clear and concise as possible. Do not include any unnecessary information.
+
+Response Format:
+
+{{
+    "message": "Your response to the user...",
+    "updated_code": "The updated code if modified, else null"
+}}
+
 """
 
 
     response = openai.ChatCompletion.create(
         model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "system", "content": prompt}],
     )
 
     ai_response = response["choices"][0]["message"]["content"]
@@ -201,7 +210,7 @@ Ensure the response is concise, clear, and directly related to the user's code c
     else:
         updated_code = None
 
-    return {"message": ai_response, "updatedCode": updated_code}
+    return json.loads(ai_response)
 
 @app.post("/image-to-flowchart")
 async def process_image_to_flowchart(file: UploadFile = File(...)):

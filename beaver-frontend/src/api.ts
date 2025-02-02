@@ -8,11 +8,18 @@ export const generateCode = async (nodes: string, edges: string) => {
   return response.data.code;
 };
 
-export const fetchBeaverResponse = async (code: string, message: string) => {
-  console.log(code);
-  const response = await axios.post("http://localhost:5000/api/chat", {
-    code,
-    message,
-  });
-  return response.data;
+import axios from "axios";
+
+export const fetchBeaverResponse = async (code, messages) => {
+  try {
+    const response = await axios.post("http://localhost:5000/chat", {
+      messages,
+      code,
+    });
+
+    return response.data; // ✅ Expecting { message: "...", updated_code: "..." }
+  } catch (error) {
+    console.error("Chat error:", error);
+    return { message: "Error processing request.", updated_code: null };
+  }
 };
