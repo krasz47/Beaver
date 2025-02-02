@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import ImageUpload from "./ImageUpload";
 import DocumentationModal from "./DocumentationModal";
 
+const languages = ["Python", "JavaScript", "Kotlin", "Rust"];
+
 interface NavbarProps {
   onImport: (flowchartData: any) => void;
   onExport: () => void;
@@ -12,12 +14,19 @@ const Navbar = ({
   onExport,
   onFlowchartImage,
   onOpenCurriculum,
+  onLanguageChange,
 }: NavbarProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCurriculumOpen, setIsCurriculumOpen] = useState(false);
   const [isDocumentationOpen, setIsDocumentationOpen] = useState(false); // State for documentation modal
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("python");
+  const handleLanguageChange = (event) => {
+    const newLang = event.target.value;
+    setSelectedLanguage(newLang);
+    onLanguageChange(newLang);
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -69,6 +78,18 @@ const Navbar = ({
     <nav className="w-full p-4 bg-[#1e1e1e] flex justify-between items-center shadow-md">
       <h1 className="text-white text-xl pl-2 font-bold">Beaver Education</h1>
       <div className="flex space-x-4">
+        <select
+          className="primary-btn text-center"
+          value={selectedLanguage}
+          onChange={handleLanguageChange}
+        >
+          {languages.map((lang) => (
+            <option key={lang} value={lang}>
+              {lang}
+            </option>
+          ))}
+        </select>
+
         <ImageUpload onFlowchartExtracted={onFlowchartImage} />
         <button onClick={onExport} className="primary-btn">
           Export
@@ -124,7 +145,7 @@ const Navbar = ({
                 onClick={() => onOpenCurriculum()}
                 className="block w-full p-3 text-left hover:bg-gray-700"
               >
-                📚 Open Curriculum
+                📚 Curriculum
               </button>
             </div>
           )}

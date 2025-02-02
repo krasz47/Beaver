@@ -23,10 +23,12 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 class CodeRequest(BaseModel):
     nodes: str
     edges: str
+    selectedLanguage: str
 
 @app.post("/generate-code")
 async def generate_code(request: CodeRequest):
     try:
+        request.selectedLanguage = request.selectedLanguage.lower()
         prompt = """
 const prompt = `
 You are a highly advanced AI trained in software engineering and structured programming. 
@@ -48,7 +50,7 @@ Your task is to generate high-quality, well-structured code based on a flowchart
 ---
 
 ### **Expected Output**
-- Generate structured **python code** based on the logic.
+- Generate structured **"""+request.selectedLanguage+""" code** based on the logic.
 - Ensure the generated code is **well-commented**.
 - Maintain **logical integrity** of conditional statements and loops.
 - Define functions where necessary, using appropriate parameters.
@@ -79,7 +81,7 @@ Your task is to generate high-quality, well-structured code based on a flowchart
 ---
 
 ### **Example Generated Code**
-```python
+```""" + request.selectedLanguage + """
 # Start of Program
 users = get_users()  # Fetch users from a database or API
 
@@ -96,7 +98,7 @@ else:
 ---
 
 ### **Your Task**
-Using the JSON structure below, generate a **fully functional, well-commented** python script. 
+Using the JSON structure below, generate a **fully functional, well-commented** """+request.selectedLanguage+""" script. 
 Ensure that:
 - **Conditional statements** are respected.
 - **Loops** are structured properly.
@@ -112,7 +114,7 @@ Ensure that:
             model="gpt-4o",
             messages=[{"role": "user", "content": f"{prompt} Nodes: {request.nodes} Edges: {request.edges} ```\nReturn only **the final code output**, no explanations."}],
         )
-        ai_response = response["choices"][0]["message"]["content"].replace("```python", "").replace("```", "").strip()
+        ai_response = response["choices"][0]["message"]["content"].replace("```" + request.selectedLanguage, "").replace("```", "").strip()
         return {"code": ai_response}
     except Exception as e:
         print(e)
@@ -204,11 +206,6 @@ Response Format:
     )
 
     ai_response = response["choices"][0]["message"]["content"]
-
-    if "```python" in ai_response:
-        updated_code = ai_response.split("```python")[1].split("```")[0]
-    else:
-        updated_code = None
 
     return json.loads(ai_response)
 

@@ -1,0 +1,38 @@
+.curriculum-menu {
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  color: white;
+  font-family: "Arial", sans-serif;
+  width: 400px;
+}
+
+.progress-tracker {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.achievement {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.achievement.unlocked {
+  background: gold;
+  color: black;
+  font-weight: bold;
+}

@@ -1,9 +1,14 @@
 import axios from "axios";
 
-export const generateCode = async (nodes: string, edges: string) => {
+export const generateCode = async (
+  nodes: string,
+  edges: string,
+  selectedLanguage: string
+) => {
   const response = await axios.post("http://localhost:5000/generate-code", {
     nodes,
     edges,
+    selectedLanguage,
   });
   return response.data.code;
 };

@@ -44,6 +44,7 @@ const FlowDiagram = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isCurriculumOpen, setIsCurriculumOpen] = useState(false);
   const [currentExercise, setCurrentExercise] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState("python");
   const [completedExercises, setCompletedExercises] = useState(() => {
     return JSON.parse(localStorage.getItem("completedExercises")) || [];
   });
@@ -144,7 +145,8 @@ const FlowDiagram = () => {
   const handleGenerateCode = async () => {
     const code = await generateCode(
       JSON.stringify(nodes),
-      JSON.stringify(edges)
+      JSON.stringify(edges),
+      selectedLanguage
     );
     setGeneratedCode(code);
   };
@@ -258,6 +260,7 @@ const FlowDiagram = () => {
         onExport={handleExport}
         onFlowchartImage={handleFlowchartExtracted}
         onOpenCurriculum={() => setIsCurriculumOpen(true)}
+        onLanguageChange={setSelectedLanguage}
       />
       <div className="flex w-full h-screen p-6 bg-darkGray rounded-md">
         <div className="flex flex-col flex-grow w-4/5 pr-6">
@@ -341,7 +344,10 @@ const FlowDiagram = () => {
             )}
           </div>
 
-          <CodeEditor code={generatedCode} />
+          <CodeEditor
+            code={generatedCode}
+            selectedLanguage={selectedLanguage}
+          />
         </div>
 
         <div className="w-1/5 flex flex-col bg-[#1e1e1e] rounded-lg shadow-lg p-4">
