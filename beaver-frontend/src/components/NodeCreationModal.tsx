@@ -16,7 +16,7 @@ const NodeCreationModal: React.FC<NodeCreationModalProps> = ({
   const [color, setColor] = useState("#252525");
   const [value, setValue] = useState("");
   const [inputs, setInputs] = useState([]);
-  const [outputs, setOutputs] = useState([]);
+  const [outputs, setOutputs] = useState(["Output 1"]);
 
   const addInput = () => setInputs([...inputs, `Input ${inputs.length + 1}`]);
   const removeInput = (index: number) =>
@@ -105,6 +105,7 @@ const NodeCreationModal: React.FC<NodeCreationModalProps> = ({
               <button
                 onClick={() => removeOutput(idx)}
                 className="bg-red-500 text-white px-2 py-1 rounded"
+                disabled={outputs.length <= 1}
               >
                 ×
               </button>

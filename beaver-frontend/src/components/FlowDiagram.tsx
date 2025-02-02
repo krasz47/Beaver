@@ -60,6 +60,8 @@ const FlowDiagram = () => {
           targetHandle: connection.targetHandle || null,
         },
       ]);
+
+      setTimeout(() => setEdges((edges) => [...edges]), 0);
     },
     [setEdges]
   );
@@ -360,7 +362,10 @@ const FlowDiagram = () => {
         {isEditModalOpen && selectedNode && (
           <NodeEditModal
             node={selectedNode}
-            onClose={() => setIsEditModalOpen(false)}
+            onClose={() => {
+              setTimeout(() => setNodes((nodes) => [...nodes]), 0);
+              setIsEditModalOpen(false);
+            }}
             onSave={(updatedNode) => {
               setNodes((prevNodes) =>
                 prevNodes.map((node) =>
