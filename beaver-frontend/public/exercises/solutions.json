@@ -49,9 +49,27 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "Number" },
-      { "source": "2", "target": "3", "label": "Yes" },
-      { "source": "2", "target": "4", "label": "No" }
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Number",
+        "sourceHandle": "Number",
+        "targetHandle": "Number"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Yes",
+        "sourceHandle": "Yes",
+        "targetHandle": "Yes"
+      },
+      {
+        "source": "2",
+        "target": "4",
+        "label": "No",
+        "sourceHandle": "No",
+        "targetHandle": "No"
+      }
     ]
   },
   {
@@ -104,9 +122,34 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "A, B" },
-      { "source": "2", "target": "3", "label": "A>B" },
-      { "source": "2", "target": "4", "label": "A<B" }
+      {
+        "source": "1",
+        "target": "2",
+        "label": "A",
+        "sourceHandle": "A",
+        "targetHandle": "A"
+      },
+      {
+        "source": "1",
+        "target": "2",
+        "label": "B",
+        "sourceHandle": "B",
+        "targetHandle": "B"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "A>B",
+        "sourceHandle": "A>B",
+        "targetHandle": "A>B"
+      },
+      {
+        "source": "2",
+        "target": "4",
+        "label": "A<B",
+        "sourceHandle": "A<B",
+        "targetHandle": "A<B"
+      }
     ]
   },
   {
@@ -148,8 +191,27 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "A, B" },
-      { "source": "2", "target": "3", "label": "Sum" }
+      {
+        "source": "1",
+        "target": "2",
+        "label": "A",
+        "sourceHandle": "A",
+        "targetHandle": "A"
+      },
+      {
+        "source": "1",
+        "target": "2",
+        "label": "B",
+        "sourceHandle": "B",
+        "targetHandle": "B"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Sum",
+        "sourceHandle": "Sum",
+        "targetHandle": "Sum"
+      }
     ]
   },
   {
@@ -361,6 +423,280 @@
     ]
   },
   {
+    "id": 4,
+    "title": "🧩 Positive, Negative, or Zero? (Solution)",
+    "nodes": [
+      {
+        "id": "1",
+        "type": "custom",
+        "position": { "x": 100, "y": 50 },
+        "data": {
+          "label": "Input Number",
+          "color": "#252525",
+          "inputs": [],
+          "outputs": ["Number"]
+        }
+      },
+      {
+        "id": "2",
+        "type": "custom",
+        "position": { "x": 300, "y": 50 },
+        "data": {
+          "label": "Check Number",
+          "color": "#252525",
+          "inputs": ["Number"],
+          "outputs": ["Positive", "Negative", "Zero"]
+        }
+      },
+      {
+        "id": "3",
+        "type": "custom",
+        "position": { "x": 500, "y": 20 },
+        "data": {
+          "label": "Print Positive",
+          "color": "#252525",
+          "inputs": ["Positive"],
+          "outputs": []
+        }
+      },
+      {
+        "id": "4",
+        "type": "custom",
+        "position": { "x": 500, "y": 50 },
+        "data": {
+          "label": "Print Negative",
+          "color": "#252525",
+          "inputs": ["Negative"],
+          "outputs": []
+        }
+      },
+      {
+        "id": "5",
+        "type": "custom",
+        "position": { "x": 500, "y": 80 },
+        "data": {
+          "label": "Print Zero",
+          "color": "#252525",
+          "inputs": ["Zero"],
+          "outputs": []
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Number",
+        "sourceHandle": "Number",
+        "targetHandle": "Number"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Positive",
+        "sourceHandle": "Positive",
+        "targetHandle": "Positive"
+      },
+      {
+        "source": "2",
+        "target": "4",
+        "label": "Negative",
+        "sourceHandle": "Negative",
+        "targetHandle": "Negative"
+      },
+      {
+        "source": "2",
+        "target": "5",
+        "label": "Zero",
+        "sourceHandle": "Zero",
+        "targetHandle": "Zero"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "📅 Leap Year Mystery (Solution)",
+    "nodes": [
+      {
+        "id": "1",
+        "type": "custom",
+        "position": { "x": 100, "y": 50 },
+        "data": {
+          "label": "Input Year",
+          "color": "#252525",
+          "inputs": [],
+          "outputs": ["Year"]
+        }
+      },
+      {
+        "id": "2",
+        "type": "custom",
+        "position": { "x": 300, "y": 50 },
+        "data": {
+          "label": "Check Leap Year",
+          "color": "#252525",
+          "inputs": ["Year"],
+          "outputs": ["Yes", "No"]
+        }
+      },
+      {
+        "id": "3",
+        "type": "custom",
+        "position": { "x": 500, "y": 20 },
+        "data": {
+          "label": "Print Leap Year",
+          "color": "#252525",
+          "inputs": ["Yes"],
+          "outputs": []
+        }
+      },
+      {
+        "id": "4",
+        "type": "custom",
+        "position": { "x": 500, "y": 80 },
+        "data": {
+          "label": "Print Not Leap Year",
+          "color": "#252525",
+          "inputs": ["No"],
+          "outputs": []
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Year",
+        "sourceHandle": "Year",
+        "targetHandle": "Year"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Yes",
+        "sourceHandle": "Yes",
+        "targetHandle": "Yes"
+      },
+      {
+        "source": "2",
+        "target": "4",
+        "label": "No",
+        "sourceHandle": "No",
+        "targetHandle": "No"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "🌡️ Celsius to Fahrenheit Converter (Solution)",
+    "nodes": [
+      {
+        "id": "1",
+        "type": "custom",
+        "position": { "x": 100, "y": 50 },
+        "data": {
+          "label": "Input Celsius",
+          "color": "#252525",
+          "inputs": [],
+          "outputs": ["Celsius"]
+        }
+      },
+      {
+        "id": "2",
+        "type": "custom",
+        "position": { "x": 300, "y": 50 },
+        "data": {
+          "label": "Convert to Fahrenheit",
+          "color": "#252525",
+          "inputs": ["Celsius"],
+          "outputs": ["Fahrenheit"]
+        }
+      },
+      {
+        "id": "3",
+        "type": "custom",
+        "position": { "x": 500, "y": 50 },
+        "data": {
+          "label": "Print Fahrenheit",
+          "color": "#252525",
+          "inputs": ["Fahrenheit"],
+          "outputs": []
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Celsius",
+        "sourceHandle": "Celsius",
+        "targetHandle": "Celsius"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Fahrenheit",
+        "sourceHandle": "Fahrenheit",
+        "targetHandle": "Fahrenheit"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "🎲 Factorial Frenzy (Solution)",
+    "nodes": [
+      {
+        "id": "1",
+        "type": "custom",
+        "position": { "x": 100, "y": 50 },
+        "data": {
+          "label": "Input N",
+          "color": "#252525",
+          "inputs": [],
+          "outputs": ["N"]
+        }
+      },
+      {
+        "id": "2",
+        "type": "custom",
+        "position": { "x": 300, "y": 50 },
+        "data": {
+          "label": "Calculate Factorial",
+          "color": "#252525",
+          "inputs": ["N"],
+          "outputs": ["Factorial"]
+        }
+      },
+      {
+        "id": "3",
+        "type": "custom",
+        "position": { "x": 500, "y": 50 },
+        "data": {
+          "label": "Print Factorial",
+          "color": "#252525",
+          "inputs": ["Factorial"],
+          "outputs": []
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "1",
+        "target": "2",
+        "label": "N",
+        "sourceHandle": "N",
+        "targetHandle": "N"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Factorial",
+        "sourceHandle": "Factorial",
+        "targetHandle": "Factorial"
+      }
+    ]
+  },
+  {
     "id": 8,
     "title": "🔢 Counting to N (Solution)",
     "nodes": [
@@ -399,8 +735,20 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "N" },
-      { "source": "2", "target": "3", "label": "Current Number" }
+      {
+        "source": "1",
+        "target": "2",
+        "label": "N",
+        "sourceHandle": "N",
+        "targetHandle": "N"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Current Number",
+        "sourceHandle": "Current Number",
+        "targetHandle": "Current Number"
+      }
     ]
   },
   {
@@ -442,8 +790,20 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "N" },
-      { "source": "2", "target": "3", "label": "Fibonacci Sequence" }
+      {
+        "source": "1",
+        "target": "2",
+        "label": "N",
+        "sourceHandle": "N",
+        "targetHandle": "N"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Fibonacci Sequence",
+        "sourceHandle": "Fibonacci Sequence",
+        "targetHandle": "Fibonacci Sequence"
+      }
     ]
   },
   {
@@ -485,8 +845,20 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "2", "label": "Number" },
-      { "source": "2", "target": "3", "label": "Reversed" }
+      {
+        "source": "1",
+        "target": "2",
+        "label": "Number",
+        "sourceHandle": "Number",
+        "targetHandle": "Number"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "Reversed",
+        "sourceHandle": "Reversed",
+        "targetHandle": "Reversed"
+      }
     ]
   },
   {
@@ -572,13 +944,55 @@
       }
     ],
     "edges": [
-      { "source": "1", "target": "3", "label": "Number" },
-      { "source": "2", "target": "3", "label": "i" },
-      { "source": "3", "target": "4", "label": "True" },
-      { "source": "3", "target": "6", "label": "False" },
-      { "source": "4", "target": "5", "label": "Not Divisible" },
-      { "source": "4", "target": "7", "label": "Divisible" },
-      { "source": "5", "target": "3", "label": "New i" }
+      {
+        "source": "1",
+        "target": "3",
+        "label": "Number",
+        "sourceHandle": "Number",
+        "targetHandle": "Number"
+      },
+      {
+        "source": "2",
+        "target": "3",
+        "label": "i",
+        "sourceHandle": "i",
+        "targetHandle": "i"
+      },
+      {
+        "source": "3",
+        "target": "4",
+        "label": "True",
+        "sourceHandle": "True",
+        "targetHandle": "i, Number"
+      },
+      {
+        "source": "3",
+        "target": "6",
+        "label": "False",
+        "sourceHandle": "False",
+        "targetHandle": "Not Divisible"
+      },
+      {
+        "source": "4",
+        "target": "5",
+        "label": "Not Divisible",
+        "sourceHandle": "Not Divisible",
+        "targetHandle": "i"
+      },
+      {
+        "source": "4",
+        "target": "7",
+        "label": "Divisible",
+        "sourceHandle": "Divisible",
+        "targetHandle": "Divisible"
+      },
+      {
+        "source": "5",
+        "target": "3",
+        "label": "New i",
+        "sourceHandle": "New i",
+        "targetHandle": "i"
+      }
     ]
   },
   {
@@ -599,7 +1013,7 @@
       {
         "id": "2",
         "type": "custom",
-        "position": { "x": 400, "y": 150 },
+        "position": { "x": 250, "y": 100 },
         "data": {
           "label": "Loop while B ≠ 0",
           "color": "#252525",
@@ -610,7 +1024,7 @@
       {
         "id": "3",
         "type": "custom",
-        "position": { "x": 700, "y": 50 },
+        "position": { "x": 400, "y": 100 },
         "data": {
           "label": "Set A = B",
           "color": "#252525",
@@ -621,7 +1035,7 @@
       {
         "id": "4",
         "type": "custom",
-        "position": { "x": 700, "y": 250 },
+        "position": { "x": 550, "y": 100 },
         "data": {
           "label": "Set B = A mod B",
           "color": "#252525",
@@ -632,7 +1046,7 @@
       {
         "id": "5",
         "type": "custom",
-        "position": { "x": 1000, "y": 150 },
+        "position": { "x": 700, "y": 100 },
         "data": {
           "label": "Print GCD",
           "color": "#252525",
@@ -645,44 +1059,37 @@
       {
         "source": "1",
         "target": "2",
-        "sourceHandle": "A",
-        "targetHandle": "A",
-        "id": "1-2-A"
-      },
-      {
-        "source": "1",
-        "target": "2",
-        "sourceHandle": "B",
-        "targetHandle": "B",
-        "id": "1-2-B"
+        "label": "A, B",
+        "sourceHandle": "A, B",
+        "targetHandle": "A, B"
       },
       {
         "source": "2",
         "target": "3",
+        "label": "True",
         "sourceHandle": "True",
-        "targetHandle": "B",
-        "id": "2-3-True"
+        "targetHandle": "B"
       },
       {
         "source": "3",
         "target": "4",
+        "label": "New A",
         "sourceHandle": "New A",
-        "targetHandle": "A",
-        "id": "3-4-NewA"
+        "targetHandle": "A"
       },
       {
         "source": "4",
         "target": "2",
+        "label": "New B",
         "sourceHandle": "New B",
-        "targetHandle": "B",
-        "id": "4-2-NewB"
+        "targetHandle": "B"
       },
       {
         "source": "2",
         "target": "5",
+        "label": "False",
         "sourceHandle": "False",
-        "targetHandle": "New A",
-        "id": "2-5-False"
+        "targetHandle": "New A"
       }
     ]
   }
