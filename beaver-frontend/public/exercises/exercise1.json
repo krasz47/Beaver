@@ -1,0 +1,38 @@
+{
+  "id": 1,
+  "title": "Check if a number is even",
+  "description": "Complete this flowchart so that it correctly identifies if a number is even or odd.",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "custom",
+      "position": { "x": 100, "y": 50 },
+      "data": {
+        "label": "Input Number",
+        "color": "#252525",
+        "inputs": [],
+        "outputs": ["Number"]
+      }
+    },
+    {
+      "id": "2",
+      "type": "custom",
+      "position": { "x": 300, "y": 50 },
+      "data": {
+        "label": "Check Even?",
+        "color": "#252525",
+        "inputs": ["Number"],
+        "outputs": ["Yes", "No"]
+      }
+    }
+  ],
+  "edges": [],
+  "validation": {
+    "requiredNodes": ["Print Even", "Print Odd"],
+    "correctConnections": [
+      { "from": "1", "to": "2", "label": "Number" },
+      { "from": "2", "to": "3", "label": "Yes" },
+      { "from": "2", "to": "4", "label": "No" }
+    ]
+  }
+}

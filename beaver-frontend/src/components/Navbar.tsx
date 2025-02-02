@@ -7,10 +7,9 @@ interface NavbarProps {
   onExport: () => void;
 }
 
-const Navbar = ({ onImport, onExport, onFlowchartImage }) => {
+const Navbar = ({ onImport, onExport, onFlowchartImage, onOpenCurriculum }) => {
   const fileInputRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCurriculumOpen, setIsCurriculumOpen] = useState(false);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -110,9 +109,9 @@ const Navbar = ({ onImport, onExport, onFlowchartImage }) => {
           </button>
 
           {isMenuOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-gray-800 shadow-lg rounded-lg">
+            <div className="absolute right-0 mt-2 w-48 bg-gray-800 shadow-lg rounded-lg z-[100]">
               <button
-                onClick={() => setIsCurriculumOpen(true)}
+                onClick={() => onOpenCurriculum()}
                 className="block w-full p-3 text-left hover:bg-gray-700"
               >
                 📚 Open Curriculum
@@ -120,10 +119,6 @@ const Navbar = ({ onImport, onExport, onFlowchartImage }) => {
             </div>
           )}
         </div>
-
-        {isCurriculumOpen && (
-          <CurriculumModal onClose={() => setIsCurriculumOpen(false)} />
-        )}
       </div>
     </nav>
   );

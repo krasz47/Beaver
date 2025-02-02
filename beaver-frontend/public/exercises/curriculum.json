@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "⚡ Even or Odd?",
+    "description": "Complete this flowchart to determine whether a number is even or odd.",
+    "filename": "exercise1.json"
+  },
+  {
+    "id": 2,
+    "title": "🏆 Find the Champion",
+    "description": "Complete the flowchart to determine the larger of two numbers.",
+    "filename": "exercise2.json"
+  },
+  {
+    "id": 3,
+    "title": "➕ The Great Sum",
+    "description": "Create a flowchart that adds two numbers together and prints the result.",
+    "filename": "exercise3.json"
+  },
+  {
+    "id": 4,
+    "title": "🧩 Positive, Negative, or Zero?",
+    "description": "Modify this flowchart to classify a number as positive, negative, or zero.",
+    "filename": "exercise4.json"
+  },
+  {
+    "id": 5,
+    "title": "📅 Leap Year Mystery",
+    "description": "Determine if a given year is a leap year or not.",
+    "filename": "exercise5.json"
+  },
+  {
+    "id": 6,
+    "title": "🌡️ Celsius to Fahrenheit Converter",
+    "description": "Convert temperature from Celsius to Fahrenheit.",
+    "filename": "exercise6.json"
+  },
+  {
+    "id": 7,
+    "title": "🎲 Factorial Frenzy",
+    "description": "Compute the factorial of a number using loops or recursion.",
+    "filename": "exercise7.json"
+  },
+  {
+    "id": 8,
+    "title": "🔢 Counting to N",
+    "description": "Use a loop to print numbers from 1 to N.",
+    "filename": "exercise8.json"
+  },
+  {
+    "id": 9,
+    "title": "🌀 Fibonacci Spiral",
+    "description": "Generate the Fibonacci sequence up to N terms.",
+    "filename": "exercise9.json"
+  },
+  {
+    "id": 10,
+    "title": "🔄 Reverse the Digits!",
+    "description": "Reverse a given number using loops.",
+    "filename": "exercise10.json"
+  },
+  {
+    "id": 11,
+    "title": "🔬 Prime Time!",
+    "description": "Check if a number is prime using loops.",
+    "filename": "exercise11.json"
+  },
+  {
+    "id": 12,
+    "title": "🧮 Greatest Common Divisor Battle",
+    "description": "Find the GCD of two numbers using the Euclidean algorithm.",
+    "filename": "exercise12.json"
+  },
+  {
+    "id": 13,
+    "title": "📊 Bubble Sort Simulation",
+    "description": "Sort an array using the Bubble Sort algorithm.",
+    "filename": "exercise13.json"
+  },
+  {
+    "id": 14,
+    "title": "🔎 The Search Quest (Linear Search)",
+    "description": "Find an element in an array using Linear Search.",
+    "filename": "exercise14.json"
+  },
+  {
+    "id": 15,
+    "title": "📡 The Binary Search Signal",
+    "description": "Implement the Binary Search algorithm.",
+    "filename": "exercise15.json"
+  },
+  {
+    "id": 16,
+    "title": "🥈 The Second Largest",
+    "description": "Find the second largest number in an array.",
+    "filename": "exercise16.json"
+  },
+  {
+    "id": 17,
+    "title": "🔁 Loop Detector in Linked List",
+    "description": "Detect a cycle in a linked list using Floyd's algorithm.",
+    "filename": "exercise17.json"
+  },
+  {
+    "id": 18,
+    "title": "📦 Stack it Up! (Stack Implementation)",
+    "description": "Implement a stack using an array.",
+    "filename": "exercise18.json"
+  },
+  {
+    "id": 19,
+    "title": "🌍 Shortest Path in a Maze",
+    "description": "Find the shortest path using BFS/DFS.",
+    "filename": "exercise19.json"
+  },
+  {
+    "id": 20,
+    "title": "🧮 Calculator Simulation",
+    "description": "Simulate a calculator that can perform basic arithmetic operations.",
+    "filename": "exercise20.json"
+  },
+  {
+    "id": 21,
+    "title": "🎭 Is it a Palindrome?",
+    "description": "Check if a string is a palindrome.",
+    "filename": "exercise21.json"
+  },
+  {
+    "id": 22,
+    "title": "📬 Queue Using Stacks",
+    "description": "Implement a queue using two stacks.",
+    "filename": "exercise22.json"
+  },
+  {
+    "id": 23,
+    "title": "🗼 Tower of Hanoi Challenge",
+    "description": "Solve the Tower of Hanoi problem using recursion.",
+    "filename": "exercise23.json"
+  },
+  {
+    "id": 24,
+    "title": "💬 Chatbot Decision Tree",
+    "description": "Create a chatbot using a decision tree.",
+    "filename": "exercise24.json"
+  },
+  {
+    "id": 25,
+    "title": "🎮 Tic-Tac-Toe AI Battle",
+    "description": "Implement an AI to play Tic-Tac-Toe using Minimax.",
+    "filename": "exercise25.json"
+  },
+  {
+    "id": 26,
+    "title": "🧠 Neural Network Simulator",
+    "description": "Build a simple neural network forward pass.",
+    "filename": "exercise26.json"
+  },
+  {
+    "id": 27,
+    "title": "🔗 PageRank Algorithm",
+    "description": "Simulate Google's PageRank algorithm using graphs.",
+    "filename": "exercise27.json"
+  },
+  {
+    "id": 28,
+    "title": "🖥️ OS Process Scheduler",
+    "description": "Implement a round-robin process scheduler.",
+    "filename": "exercise28.json"
+  },
+  {
+    "id": 29,
+    "title": "💰 Blockchain Validator",
+    "description": "Simulate blockchain transaction validation using Merkle trees.",
+    "filename": "exercise29.json"
+  },
+  {
+    "id": 30,
+    "title": "🔴 Connect Four AI Challenge",
+    "description": "Implement an AI to play Connect Four using Alpha-Beta pruning.",
+    "filename": "exercise30.json"
+  }
+]

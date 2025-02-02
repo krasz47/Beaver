@@ -16,7 +16,7 @@ import NodeCreationModal from "./NodeCreationModal";
 import NodeContextMenu from "./NodeContextMenu";
 import NodeEditModal from "./NodeEditModal";
 import Navbar from "./Navbar";
-import ImageUpload from "./ImageUpload";
+import CurriculumModal from "./CurriculumModal";
 
 const nodeTypes: NodeTypes = {
   custom: CustomNode,
@@ -34,6 +34,11 @@ const FlowDiagram = () => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isCurriculumOpen, setIsCurriculumOpen] = useState(false);
+  const [currentExercise, setCurrentExercise] = useState(null);
+  const [completedExercises, setCompletedExercises] = useState(() => {
+    return JSON.parse(localStorage.getItem("completedExercises")) || [];
+  });
 
   // Handle duplicated edge connections with correct `sourceHandle` and `targetHandle`
   const onConnect = useCallback(
@@ -51,14 +56,48 @@ const FlowDiagram = () => {
     [setEdges]
   );
 
-  const handleLoadExercise = (exerciseId) => {
-    fetch(`/exercises/exercise${exerciseId}.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        setNodes(data.nodes);
-        setEdges(data.edges);
-      })
-      .catch((err) => console.error("Error loading exercise:", err));
+  const handleLoadExercise = (exerciseData) => {
+    setCurrentExercise(exerciseData);
+    setNodes(exerciseData.nodes);
+    setEdges([]);
+  };
+
+  const handleValidateExercise = () => {
+    if (!currentExercise) {
+      alert("❌ No active exercise. Select one from the curriculum.");
+      return;
+    }
+
+    const { validation } = currentExercise;
+
+    // Ensure required nodes exist
+    const missingNodes = validation.requiredNodes.filter(
+      (reqNode) => !nodes.some((node) => node.data.label === reqNode)
+    );
+
+    // Ensure required edges exist
+    console.log(edges);
+    console.log(validation.correctConnections);
+    const incorrectEdges = validation.correctConnections.filter(
+      (conn) => !edges.some((edge) => edge.sourceHandle === conn.label)
+    );
+
+    if (missingNodes.length === 0 && incorrectEdges.length === 0) {
+      alert("✅ Correct! You have completed the exercise.");
+
+      // Mark the exercise as completed
+      setCompletedExercises((prev) => {
+        const updated = [...new Set([...prev, currentExercise.id])];
+        localStorage.setItem("completedExercises", JSON.stringify(updated));
+        return updated;
+      });
+    } else {
+      alert(
+        `❌ Incorrect. Missing nodes: ${missingNodes.join(
+          ", "
+        )}. Incorrect connections: ${incorrectEdges.length}`
+      );
+    }
   };
 
   const handleGenerateCode = async () => {
@@ -155,6 +194,7 @@ const FlowDiagram = () => {
         onImport={handleImport}
         onExport={handleExport}
         onFlowchartImage={handleFlowchartExtracted}
+        onOpenCurriculum={() => setIsCurriculumOpen(true)}
       />
       <div className="flex w-full h-screen p-6 bg-darkGray rounded-md">
         <div className="flex flex-col flex-grow w-4/5 pr-6">
@@ -209,6 +249,9 @@ const FlowDiagram = () => {
             <button onClick={handleClearFlowchart} className="primary-btn">
               Clear Canvas
             </button>
+            <button onClick={handleValidateExercise} className="primary-btn">
+              Validate Exercise
+            </button>
           </div>
 
           <CodeEditor code={generatedCode} />
@@ -241,6 +284,13 @@ const FlowDiagram = () => {
               );
               setIsEditModalOpen(false);
             }}
+          />
+        )}
+
+        {isCurriculumOpen && (
+          <CurriculumModal
+            onClose={() => setIsCurriculumOpen(false)}
+            onLoadExercise={handleLoadExercise}
           />
         )}
       </div>
