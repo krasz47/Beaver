@@ -1,15 +1,23 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import ImageUpload from "./ImageUpload";
-import CurriculumModal from "./CurriculumModal";
+import DocumentationModal from "./DocumentationModal";
 
 interface NavbarProps {
   onImport: (flowchartData: any) => void;
   onExport: () => void;
 }
 
-const Navbar = ({ onImport, onExport, onFlowchartImage, onOpenCurriculum }) => {
-  const fileInputRef = useRef(null);
+const Navbar = ({
+  onImport,
+  onExport,
+  onFlowchartImage,
+  onOpenCurriculum,
+}: NavbarProps) => {
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCurriculumOpen, setIsCurriculumOpen] = useState(false);
+  const [isDocumentationOpen, setIsDocumentationOpen] = useState(false); // State for documentation modal
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -43,9 +51,9 @@ const Navbar = ({ onImport, onExport, onFlowchartImage, onOpenCurriculum }) => {
 
     reader.readAsText(file);
 
+    // Clear file input
     event.target.value = "";
   };
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleClipboardImport = async () => {
     try {
@@ -65,6 +73,8 @@ const Navbar = ({ onImport, onExport, onFlowchartImage, onOpenCurriculum }) => {
         <button onClick={onExport} className="primary-btn">
           Export
         </button>
+
+        {/* Import Dropdown */}
         <div className="relative">
           <button
             className="primary-btn"
@@ -119,7 +129,20 @@ const Navbar = ({ onImport, onExport, onFlowchartImage, onOpenCurriculum }) => {
             </div>
           )}
         </div>
+
+        {/* Documentation Icon */}
+        <button
+          onClick={() => setIsDocumentationOpen(true)}
+          className="text-xl text-white hover:bg-gray-700 p-2 rounded-full"
+          title="Documentation"
+        >
+          📖
+        </button>
       </div>
+
+      {isDocumentationOpen && (
+        <DocumentationModal onClose={() => setIsDocumentationOpen(false)} />
+      )}
     </nav>
   );
 };
