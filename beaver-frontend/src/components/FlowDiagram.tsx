@@ -51,6 +51,16 @@ const FlowDiagram = () => {
     [setEdges]
   );
 
+  const handleLoadExercise = (exerciseId) => {
+    fetch(`/exercises/exercise${exerciseId}.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setNodes(data.nodes);
+        setEdges(data.edges);
+      })
+      .catch((err) => console.error("Error loading exercise:", err));
+  };
+
   const handleGenerateCode = async () => {
     const code = await generateCode(
       JSON.stringify(nodes),

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import ImageUpload from "./ImageUpload";
+import CurriculumModal from "./CurriculumModal";
 
 interface NavbarProps {
   onImport: (flowchartData: any) => void;
@@ -8,6 +9,8 @@ interface NavbarProps {
 
 const Navbar = ({ onImport, onExport, onFlowchartImage }) => {
   const fileInputRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCurriculumOpen, setIsCurriculumOpen] = useState(false);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -72,7 +75,7 @@ const Navbar = ({ onImport, onExport, onFlowchartImage }) => {
           </button>
 
           {showDropdown && (
-            <div className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded shadow-lg z-10">
+            <div className="absolute right-0 mt-2 w-48 rounded shadow-lg z-10">
               <button
                 className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700"
                 onClick={() => fileInputRef.current?.click()}
@@ -96,6 +99,31 @@ const Navbar = ({ onImport, onExport, onFlowchartImage }) => {
             onChange={handleFileImport}
           />
         </div>
+
+        {/* Hamburger Menu */}
+        <div className="relative">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-xl"
+          >
+            ☰
+          </button>
+
+          {isMenuOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-gray-800 shadow-lg rounded-lg">
+              <button
+                onClick={() => setIsCurriculumOpen(true)}
+                className="block w-full p-3 text-left hover:bg-gray-700"
+              >
+                📚 Open Curriculum
+              </button>
+            </div>
+          )}
+        </div>
+
+        {isCurriculumOpen && (
+          <CurriculumModal onClose={() => setIsCurriculumOpen(false)} />
+        )}
       </div>
     </nav>
   );
