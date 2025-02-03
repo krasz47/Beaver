@@ -29,6 +29,9 @@ class CodeRequest(BaseModel):
 async def generate_code(request: CodeRequest):
     try:
         request.selectedLanguage = request.selectedLanguage.lower()
+        # Prevent user input into the selectedLanguage parameter to stop injection for API cost reasons
+        if request.selectedLanguage not in ["python","javascript","kotlin","rust"]:
+            raise Exception("Your requested language is not supported.")
         prompt = """
 const prompt = `
 You are a highly advanced AI trained in software engineering and structured programming. 
@@ -200,14 +203,22 @@ Response Format:
 """
 
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4o",
-        messages=[{"role": "system", "content": prompt}],
-    )
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4o",
+            messages=[{"role": "system", "content": prompt}],
+            max_tokens=1250
+        )
 
-    ai_response = response["choices"][0]["message"]["content"]
+        ai_response = response["choices"][0]["message"]["content"]
 
-    return json.loads(ai_response)
+        return json.loads(ai_response)
+    except openai.error.InvalidRequestError as e:
+        print(e)
+        if "max_tokens" in str(e):
+            raise HTTPException(status_code=500, detail="Lower message input size.")
+        else:
+            raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/image-to-flowchart")
 async def process_image_to_flowchart(file: UploadFile = File(...)):
