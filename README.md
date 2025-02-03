@@ -66,6 +66,6 @@ To run this project, you will need to add the following environment variables to
 
 
 ## Authors
-
+Made by the following in the annual ICHack 25 Hackathon from DocSoc at Imperial College London
 - [@ImArjunJ](https://github.com/ImArjunJ)
 - [@Krasz47](https://github.com/krasz47)
